@@ -1,23 +1,23 @@
-import logo from './logo.svg'
 import './App.css'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {/* Redirect to latest news page on load, since the app will not have a separate home page */}
+        <Route path="/" element={<Navigate replace to={'articles/latest'} />} />
+        <Route path="articles">
+          <Route path={'latest'} element={<div>latest</div>} />
+          <Route path={'starred'} element={<div>starred</div>} />
+          <Route
+            path={'detail/:articleId'}
+            element={<div>detail somehow</div>}
+          />
+        </Route>
+
+        <Route path="*" element={<div>wuh oh</div>} />
+      </Routes>
     </div>
   )
 }
