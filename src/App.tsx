@@ -1,5 +1,6 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { Latest } from './pages/articles/Latest'
 
 function App() {
   return (
@@ -8,12 +9,12 @@ function App() {
         {/* Redirect to latest news page on load, since the app will not have a separate home page */}
         <Route path="/" element={<Navigate replace to={'articles/latest'} />} />
         <Route path="articles">
-          <Route path={'latest'} element={<div>latest</div>} />
+          <Route path={'latest'} element={<Latest />} />
           <Route path={'starred'} element={<div>starred</div>} />
-          <Route
+          {/* <Route
             path={'detail/:articleId'}
             element={<div>detail somehow</div>}
-          />
+          /> */}
         </Route>
 
         <Route path="*" element={<div>wuh oh</div>} />
