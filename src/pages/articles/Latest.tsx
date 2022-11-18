@@ -1,16 +1,15 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-
-const fetchLatest = ({ pageParam = 0 }) =>
-  fetch(
-    `https://hn.algolia.com/api/v1/search_by_date?hitsPerPage=12&page=${pageParam}`,
-  ).then(res => res.json())
+import { pipe } from 'fp-ts/function'
+import * as RA from 'fp-ts/ReadonlyArray'
+import { fetchLatest } from '../../data/data'
+import { NewsItem } from './NewsItem'
 
 export const Latest = () => {
   const { isLoading, isError, fetchNextPage, error, data, isFetching } =
     useInfiniteQuery({
       queryKey: ['latest'],
       queryFn: fetchLatest,
-      getNextPageParam: lastpage => ((lastpage as any).page as number) + 1,
+      getNextPageParam: lastpage => lastpage.page + 1,
     })
 
   console.log(data)
@@ -22,13 +21,14 @@ export const Latest = () => {
   } else if (data != null) {
     return (
       <div>
-        <ul>
-          {data.pages.map(page =>
-            page.hits.map((hit: any) => (
-              <li>{hit.story_id + hit.story_title}</li>
-            )),
+        <ol>
+          {pipe(
+            data.pages,
+            RA.map(({ hits }) => hits),
+            RA.flatten,
+            RA.map(hit => <NewsItem hit={hit} />),
           )}
-        </ul>
+        </ol>
         <button onClick={() => fetchNextPage()}>more</button>
       </div>
     )
