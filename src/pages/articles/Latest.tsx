@@ -26,7 +26,7 @@ export const Latest = () => {
             data.pages,
             RA.map(({ hits }) => hits),
             RA.flatten,
-            RA.map(hit => <NewsItem hit={hit} />),
+            RA.map(hit => <NewsItem key={hit.id} hit={hit} />),
           )}
         </ol>
         <button onClick={() => fetchNextPage()}>more</button>
