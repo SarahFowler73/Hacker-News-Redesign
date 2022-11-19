@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { pipe } from 'fp-ts/function'
 import * as RA from 'fp-ts/ReadonlyArray'
+import { Button } from '../../common/components/Button'
 import { fetchLatest } from '../../data/data'
 import { NewsItem } from './NewsItem'
 
@@ -29,7 +30,7 @@ export const Latest = () => {
             RA.map(hit => <NewsItem key={hit.id} hit={hit} />),
           )}
         </ol>
-        <button onClick={() => fetchNextPage()}>more</button>
+        <Button onClick={() => fetchNextPage()}>more</Button>
       </div>
     )
   } else {
