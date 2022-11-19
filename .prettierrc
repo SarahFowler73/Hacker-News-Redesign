@@ -1,7 +1,9 @@
 {
-    "singleQuote": true,
-    "trailingComma": "all",
-    "semi": false,
-    "arrowParens": "avoid"
-  }
-  
+  "singleQuote": true,
+  "trailingComma": "all",
+  "semi": false,
+  "arrowParens": "avoid",
+  "importOrder": ["^src/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
