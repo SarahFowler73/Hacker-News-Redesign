@@ -1,5 +1,7 @@
 import * as O from 'fp-ts/Option'
+import styled, { css } from 'styled-components'
 
+import { MonoStyles, SmallTextStyles } from '../../common/components/Typography'
 import {
   HN_BASE_ITEM_URL,
   HN_BASE_SEARCH_URL,
@@ -10,6 +12,18 @@ import { TransformedHitResult } from '../../common/types'
 import { selectGetIsStarredItem } from '../../data/selectors'
 import { toggleStarred } from '../../data/starredSlice'
 import { useAppDispatch, useAppSelector } from '../../data/store'
+
+const StyledLi = styled.li(
+  () => css`
+    ${MonoStyles}
+    color: ${({ theme }) =>
+      `${theme.colors.text}${theme.colors.opacity['50']}`};
+  `,
+)
+
+const StyledArticleTitle = styled.a(() => MonoStyles)
+const StyledLink = styled.a(() => SmallTextStyles)
+const StyledSpan = styled.span(() => SmallTextStyles)
 
 export const NewsItem = ({ hit }: { hit: TransformedHitResult }) => {
   const dispatch = useAppDispatch()
@@ -22,28 +36,32 @@ export const NewsItem = ({ hit }: { hit: TransformedHitResult }) => {
   }
 
   return (
-    <li key={hit.id}>
-      <a href={hit.url} target={'_blank'} rel="noreferrer">
+    <StyledLi key={hit.id}>
+      <StyledArticleTitle href={hit.url} target={'_blank'} rel="noreferrer">
         {hit.title}
-      </a>
+      </StyledArticleTitle>
       {O.isSome(hit.externalUrlDomain) && (
-        <a href={`${HN_BASE_SEARCH_URL}${hit.externalUrlDomain.value}`}>
+        <StyledLink
+          href={`${HN_BASE_SEARCH_URL}${hit.externalUrlDomain.value}`}
+        >
           {`(${hit.externalUrlDomain.value})`}
-        </a>
+        </StyledLink>
       )}
-      <p>
+      <StyledSpan as="p">
         <span>{`${hit.points} points by `}</span>
-        <a href={`${HN_BASE_USER_URL}${hit.author}`}>{hit.author}</a>{' '}
-        <a title={hit.createdAtISO} href={itemUrl}>
+        <StyledLink href={`${HN_BASE_USER_URL}${hit.author}`}>
+          {hit.author}
+        </StyledLink>{' '}
+        <StyledLink title={hit.createdAtISO} href={itemUrl}>
           {formatRelativeTimeFromISO(hit.createdAtISO)}
-        </a>
+        </StyledLink>
         {' | '}
-        <a href={itemUrl}>{`${hit.numComments} comments`}</a>
+        <StyledLink href={itemUrl}>{`${hit.numComments} comments`}</StyledLink>
         {' | '}
         <button onClick={handleSaveItem}>
           {isStarred ? 'unsave' : 'save'}
         </button>
-      </p>
-    </li>
+      </StyledSpan>
+    </StyledLi>
   )
 }

@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { pipe } from 'fp-ts/function'
 import * as RA from 'fp-ts/ReadonlyArray'
+import { pipe } from 'fp-ts/function'
+
 import { Button } from '../../common/components/Button'
 import { fetchLatest } from '../../data/data'
 import { NewsItem } from './NewsItem'

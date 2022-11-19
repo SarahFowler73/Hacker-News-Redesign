@@ -1,10 +1,11 @@
-import { pipe } from 'fp-ts/function'
-import * as RA from 'fp-ts/ReadonlyArray'
 import * as O from 'fp-ts/Option'
-import { HitResult, PageResult } from './apiTypes'
+import * as RA from 'fp-ts/ReadonlyArray'
+import { pipe } from 'fp-ts/function'
+
+import { DOMAIN_REGEX, HN_BASE_ITEM_URL } from '../common/constants'
 import { isNil } from '../common/helpers'
 import { TransformedHitResult, TransformedPageResult } from '../common/types'
-import { DOMAIN_REGEX, HN_BASE_ITEM_URL } from '../common/constants'
+import { HitResult, PageResult } from './apiTypes'
 
 const transformHits = (
   hits: ReadonlyArray<HitResult>,

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+
 import { starredSliceReducer } from './starredSlice'
 
 export const store = configureStore({

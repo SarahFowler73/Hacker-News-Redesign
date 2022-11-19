@@ -1,19 +1,20 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import { Latest } from './pages/articles/Latest'
-import { Starred } from './pages/articles/Starred'
-import { Layout } from './common/components/Layout'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
-import { ReactQueryProvider } from './providers/ReactQueryProvider'
-import { store } from './data/store'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+
+import { Layout } from './common/components/Layout'
 import {
   GlobalStyles,
-  lightTheme,
-  darkTheme,
   ThemeContext,
+  darkTheme,
+  lightTheme,
 } from './common/theme'
-import React from 'react'
+import { store } from './data/store'
+import { Latest } from './pages/articles/Latest'
+import { Starred } from './pages/articles/Starred'
+import { ReactQueryProvider } from './providers/ReactQueryProvider'
 
 const AppRouter = () => (
   <Routes>

@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { pipe } from 'fp-ts/lib/function'
-import * as R from 'fp-ts/Record'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import * as O from 'fp-ts/Option'
+import * as R from 'fp-ts/Record'
+import { pipe } from 'fp-ts/lib/function'
+
 import { TransformedHitResult } from '../common/types'
 
 /* This state shape was a bit of a trade-off. Ideally, if I managed the api, I would allow a bulk 'by-id' request, 

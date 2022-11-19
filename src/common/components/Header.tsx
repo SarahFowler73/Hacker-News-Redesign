@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { ThemeContext } from '../../common/theme'
-import { Navigation } from './Navigation'
 
-import { ReactComponent as Logo } from '../assets/logo.svg'
+import { ThemeContext } from '../../common/theme'
+import { Logo } from '../assets/Logo'
+import { Navigation } from './Navigation'
+import { HeadingStyles } from './Typography'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -11,7 +12,6 @@ const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.body};
   position: sticky;
   top: 0;
-  padding: 45px 0px;
 `
 
 const HeaderRight = styled.div`
@@ -20,18 +20,30 @@ const HeaderRight = styled.div`
   gap: 2rem;
 `
 
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+const StyledH1 = styled.h1(() => HeadingStyles)
+
 export const Header = () => {
   return (
-    <StyledHeader>
-      <HeaderRight>
-        <Logo />
-        <Navigation />
-      </HeaderRight>
-      <ThemeContext.Consumer>
-        {({ theme, toggleTheme }) => (
-          <button onClick={toggleTheme}> {theme.colors.text}</button>
-        )}
-      </ThemeContext.Consumer>
-    </StyledHeader>
+    <ThemeContext.Consumer>
+      {({ theme, toggleTheme }) => (
+        <StyledHeader>
+          <HeaderRight>
+            <LogoContainer>
+              <Logo />
+              <StyledH1>Hacker News</StyledH1>
+            </LogoContainer>
+            <Navigation />
+          </HeaderRight>
+
+          <button onClick={toggleTheme}> {theme.colors.body}</button>
+        </StyledHeader>
+      )}
+    </ThemeContext.Consumer>
   )
 }
