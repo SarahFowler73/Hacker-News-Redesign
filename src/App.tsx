@@ -1,6 +1,8 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Latest } from './pages/articles/Latest'
+import { Starred } from './pages/articles/Starred'
+import { Layout } from './pages/common/Layout'
 
 function App() {
   return (
@@ -8,9 +10,9 @@ function App() {
       <Routes>
         {/* Redirect to latest news page on load, since the app will not have a separate home page */}
         <Route path="/" element={<Navigate replace to={'articles/latest'} />} />
-        <Route path="articles">
+        <Route path="articles" element={<Layout />}>
           <Route path={'latest'} element={<Latest />} />
-          <Route path={'starred'} element={<div>starred</div>} />
+          <Route path={'starred'} element={<Starred />} />
           {/* <Route
             path={'detail/:articleId'}
             element={<div>detail somehow</div>}
