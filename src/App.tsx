@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Latest } from './pages/articles/Latest'
 import { Starred } from './pages/articles/Starred'
-import { Layout } from './pages/common/Layout'
+import { Layout } from './common/components/Layout'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider as ReduxProvider } from 'react-redux'
 import { ReactQueryProvider } from './providers/ReactQueryProvider'

@@ -30,7 +30,7 @@ export const Latest = () => {
             RA.map(hit => <NewsItem key={hit.id} hit={hit} />),
           )}
         </ol>
-        <Button onClick={() => fetchNextPage()}>more</Button>
+        <Button onClick={() => fetchNextPage()}>show more</Button>
       </div>
     )
   } else {
