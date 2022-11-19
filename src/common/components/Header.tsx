@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 import { ThemeContext } from '../../common/theme'
 import { Logo } from '../assets/Logo'
+import { Moon } from '../assets/Moon'
+import { Sun } from '../assets/Sun'
+import { IconButton } from './IconButton'
 import { Navigation } from './Navigation'
 import { HeadingStyles } from './Typography'
 
@@ -41,7 +44,17 @@ export const Header = () => {
             <Navigation />
           </HeaderRight>
 
-          <button onClick={toggleTheme}> {theme.colors.body}</button>
+          <IconButton
+            onClick={() => {
+              console.log(theme.mode)
+              toggleTheme()
+            }}
+            label={`Switch to ${
+              theme.mode === 'light' ? 'Dark' : 'Light'
+            } Theme`}
+          >
+            {theme.mode === 'light' ? <Moon /> : <Sun />}
+          </IconButton>
         </StyledHeader>
       )}
     </ThemeContext.Consumer>

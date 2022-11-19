@@ -2,10 +2,10 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 export const lightTheme = {
-  name: 'light',
+  mode: 'light',
   colors: {
-    body: '#000000',
-    text: '#FFFFFF',
+    body: '#FFFFFF',
+    text: '#000000',
     accent: '#FE7139',
     accentContrast: '#FFFFFF',
     accent2: '#FF6600',
@@ -27,11 +27,11 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...lightTheme,
-  name: 'dark',
+  mode: 'dark',
   colors: {
     ...lightTheme.colors,
-    body: '#FFFFFF',
-    text: '#000000',
+    body: '#000000',
+    text: '#FFFFFF',
   },
 }
 
