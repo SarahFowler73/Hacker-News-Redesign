@@ -5,27 +5,22 @@ import { Logo } from '../assets/Logo'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { IconButton } from './IconButton'
+import { RowLayout } from './LayoutHelpers'
 import { Navigation } from './Navigation'
 import { HeadingStyles } from './Typography'
 
-const StyledHeader = styled.header`
-  display: flex;
-  align-items: center;
+const StyledHeader = styled(RowLayout).attrs({ as: 'header' })`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.body};
   position: sticky;
-  top: 0;
+  top: 4px;
 `
 
-const HeaderRight = styled.div`
-  display: flex;
-  align-items: center;
+const HeaderRight = styled(RowLayout)`
   gap: 2rem;
 `
 
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
+const LogoContainer = styled(RowLayout)`
   gap: 0.5rem;
 `
 
@@ -33,17 +28,16 @@ const StyledH1 = styled.h1(() => HeadingStyles)
 
 export const Header = () => {
   return (
-    <ThemeContext.Consumer>
-      {({ theme, toggleTheme }) => (
-        <StyledHeader>
-          <HeaderRight>
-            <LogoContainer>
-              <Logo />
-              <StyledH1>Hacker News</StyledH1>
-            </LogoContainer>
-            <Navigation />
-          </HeaderRight>
-
+    <StyledHeader>
+      <HeaderRight>
+        <LogoContainer>
+          <Logo />
+          <StyledH1>Hacker News</StyledH1>
+        </LogoContainer>
+        <Navigation />
+      </HeaderRight>
+      <ThemeContext.Consumer>
+        {({ theme, toggleTheme }) => (
           <IconButton
             onClick={() => {
               console.log(theme.mode)
@@ -55,8 +49,8 @@ export const Header = () => {
           >
             {theme.mode === 'light' ? <Moon /> : <Sun />}
           </IconButton>
-        </StyledHeader>
-      )}
-    </ThemeContext.Consumer>
+        )}
+      </ThemeContext.Consumer>
+    </StyledHeader>
   )
 }

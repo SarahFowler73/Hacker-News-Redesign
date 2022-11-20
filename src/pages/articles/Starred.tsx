@@ -4,6 +4,7 @@ import * as R from 'fp-ts/Record'
 import { pipe } from 'fp-ts/lib/function'
 import React from 'react'
 
+import { StyledOrderedList } from '../../common/components/List'
 import { TransformedHitResult } from '../../common/types'
 import { selectStarred } from '../../data/selectors'
 import { useAppSelector } from '../../data/store'
@@ -14,7 +15,7 @@ export const Starred = () => {
 
   return (
     <>
-      <ol>
+      <StyledOrderedList>
         {pipe(
           starredItems,
           R.toEntries,
@@ -26,7 +27,7 @@ export const Starred = () => {
             )),
           ),
         )}
-      </ol>
+      </StyledOrderedList>
     </>
   )
 }

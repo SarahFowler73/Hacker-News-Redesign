@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
+import { ColumnLayout } from './LayoutHelpers'
 import { Navigation } from './Navigation'
 
-const StyledFooter = styled.footer`
-  display: flex;
-  flex-direction: column;
+const StyledFooter = styled(ColumnLayout).attrs({ as: 'footer' })`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.body};
   border-top: ${({ theme }) => `4px solid ${theme.colors.accent2};`};

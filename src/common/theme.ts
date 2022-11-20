@@ -44,7 +44,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
   }
 
   html {
-    border-top: ${({ theme }) => `4px solid ${theme.colors.accent2}`};
     background: ${({ theme }) => theme.colors.body};
     color: ${({ theme }) => theme.colors.text};
   }
@@ -72,7 +71,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
     text-decoration: none;
   }
   a:hover {
-    opacity: 50%;
+    opacity: 75%;
     text-decoration: underline;
   }
 
