@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import { Button } from '../../common/components/Button'
 import { StyledOrderedList } from '../../common/components/List'
+import { CenteredLoader } from '../../common/components/Loader'
 import { fetchLatest } from '../../data/data'
 import { NewsItem } from './NewsItem'
 
@@ -13,7 +14,7 @@ const StyledButton = styled(Button)`
 `
 
 export const Latest = () => {
-  const { isLoading, isError, fetchNextPage, error, data, isFetching } =
+  const { isLoading, isError, fetchNextPage, data, isFetching } =
     useInfiniteQuery({
       queryKey: ['latest'],
       queryFn: fetchLatest,
@@ -21,9 +22,9 @@ export const Latest = () => {
     })
 
   if (isLoading) {
-    return <div>loading</div>
+    return <CenteredLoader />
   } else if (isError) {
-    return <div>error</div>
+    return <div>Something went wrong. Please try again.</div>
   } else if (data != null) {
     return (
       <div>
@@ -35,7 +36,10 @@ export const Latest = () => {
             RA.map(hit => <NewsItem key={hit.id} hit={hit} />),
           )}
         </StyledOrderedList>
-        <StyledButton onClick={() => fetchNextPage()}>show more</StyledButton>
+        <StyledButton disabled={isFetching} onClick={() => fetchNextPage()}>
+          show more
+        </StyledButton>
+        {isFetching && <CenteredLoader />}
       </div>
     )
   } else {

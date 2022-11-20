@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import { Layout } from './common/components/Layout'
+import { Layout } from './common/components/PageComponents/Layout'
 import {
   GlobalStyles,
   ThemeContext,

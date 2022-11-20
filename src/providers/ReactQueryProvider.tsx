@@ -13,14 +13,6 @@ const queryClient = new QueryClient({
       cacheTime: 900000,
     },
   },
-  logger: {
-    log: console.log,
-    warn: console.warn,
-    // ReactQuery's documentation suggests turning off network logging for tests
-    // https://tanstack.com/query/v4/docs/guides/testing#turn-off-network-error-logging
-    error:
-      process.env.NODE_ENV === 'test' ? (): void => undefined : console.error,
-  },
 })
 
 export const ReactQueryProvider = ({

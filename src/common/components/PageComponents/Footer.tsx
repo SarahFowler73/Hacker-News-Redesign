@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { ColumnLayout } from './LayoutHelpers'
+import { ColumnLayout } from '../LayoutHelpers'
 import { Navigation } from './Navigation'
 
 const StyledFooter = styled(ColumnLayout).attrs({ as: 'footer' })`

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { ThemeContext } from '../../common/theme'
-import { Logo } from '../assets/Logo'
-import { Moon } from '../assets/Moon'
-import { Sun } from '../assets/Sun'
-import { IconButton } from './IconButton'
-import { RowLayout } from './LayoutHelpers'
+import { Logo } from '../../assets/Logo'
+import { Moon } from '../../assets/Moon'
+import { Sun } from '../../assets/Sun'
+import { ThemeContext } from '../../theme'
+import { IconButton } from '../IconButton'
+import { RowLayout } from '../LayoutHelpers'
+import { HeadingStyles } from '../Typography'
 import { Navigation } from './Navigation'
-import { HeadingStyles } from './Typography'
 
 const StyledHeader = styled(RowLayout).attrs({ as: 'header' })`
   justify-content: space-between;
@@ -39,10 +39,7 @@ export const Header = () => {
       <ThemeContext.Consumer>
         {({ theme, toggleTheme }) => (
           <IconButton
-            onClick={() => {
-              console.log(theme.mode)
-              toggleTheme()
-            }}
+            onClick={toggleTheme}
             label={`Switch to ${
               theme.mode === 'light' ? 'Dark' : 'Light'
             } Theme`}

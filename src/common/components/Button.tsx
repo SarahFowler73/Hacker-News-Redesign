@@ -8,4 +8,8 @@ export const Button = styled.button`
     box-shadow: ${({ theme }) =>
       `0 0 2px 2px ${theme.colors.accent}${theme.colors.opacity[50]}`};
   }
+  &:disabled {
+    opacity: 50%;
+    pointer-events: none;
+  }
 `

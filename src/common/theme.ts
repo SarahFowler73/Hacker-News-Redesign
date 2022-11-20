@@ -36,8 +36,6 @@ export const darkTheme = {
 }
 
 export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
   html, body {
     height: 100%;

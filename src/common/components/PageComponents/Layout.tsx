@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { ColumnLayout } from '../LayoutHelpers'
 import { Footer } from './Footer'
 import { Header } from './Header'
-import { ColumnLayout } from './LayoutHelpers'
 
 const StyledApp = styled(ColumnLayout)`
   flex-grow: 1;

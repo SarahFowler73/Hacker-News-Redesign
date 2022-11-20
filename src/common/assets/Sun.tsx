@@ -13,8 +13,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="9.75"
       y2="2.58333"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="9.75"
@@ -22,8 +22,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="9.75"
       y2="19.25"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="17.071"
@@ -31,8 +31,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="15.7747"
       y2="5.28598"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="5.28613"
@@ -40,8 +40,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="3.98977"
       y2="17.0711"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="19.25"
@@ -49,8 +49,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="17.4167"
       y2="10.75"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="2.58325"
@@ -58,8 +58,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="0.749919"
       y2="10.75"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="16.0104"
@@ -67,8 +67,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="14.714"
       y2="15.7747"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
     <line
       x1="4.22547"
@@ -76,8 +76,8 @@ export const Sun = ({ size = 20 }: { size?: number }) => (
       x2="2.92911"
       y2="3.98959"
       stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 )

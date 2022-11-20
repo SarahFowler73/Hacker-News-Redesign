@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-import { RowLayout } from './LayoutHelpers'
-import { TextDivide } from './TextDivide'
+import { RowLayout } from '../LayoutHelpers'
+import { TextDivide } from '../TextDivide'
 
 const StyledNav = styled(RowLayout).attrs({ as: 'nav' })`
   gap: 4px;

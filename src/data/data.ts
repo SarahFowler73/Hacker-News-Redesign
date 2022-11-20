@@ -7,6 +7,9 @@ import { isNil } from '../common/helpers'
 import { TransformedHitResult, TransformedPageResult } from '../common/types'
 import { HitResult, PageResult } from './apiTypes'
 
+/**
+ * Takes a raw json result and transforms it into the desired shape for the app
+ */
 const transformHits = (
   hits: ReadonlyArray<HitResult>,
 ): ReadonlyArray<TransformedHitResult> =>
@@ -34,6 +37,9 @@ const transformHits = (
     ),
   )
 
+/**
+ * Fetch most recent hacker news items, paging 12 at a time, and transforms the result
+ */
 export const fetchLatest = ({ pageParam = 0 }) =>
   fetch(
     `https://hn.algolia.com/api/v1/search_by_date?tags=(story,poll,show_hn,ask_hn,front_page)&hitsPerPage=12&page=${pageParam}`,
