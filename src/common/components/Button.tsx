@@ -6,6 +6,6 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.accentContrast};
   &:hover {
     box-shadow: ${({ theme }) =>
-      `0 0 5px 5px ${theme.colors.accent}${theme.colors.opacity[50]}`};
+      `0 0 2px 2px ${theme.colors.accent}${theme.colors.opacity[50]}`};
   }
 `

@@ -18,6 +18,7 @@ const StyledLi = styled.li(
     ${MonoStyles}
     color: ${({ theme }) =>
       `${theme.colors.text}${theme.colors.opacity['50']}`};
+    font-weight: normal;
   `,
 )
 const StyledListContent = styled(ColumnLayout)`
