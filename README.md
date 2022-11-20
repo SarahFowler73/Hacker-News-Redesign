@@ -32,6 +32,8 @@ App will be available at port 3000
 
 I went overboard, since I was having fun! :D I think the prompt could have been accomplished with a less complicated and scalable approach (e.g. I wanted to try out ReactQuery, but a sufficient solution for this scale of project could have been managed with fetch and some local state). However, I was somewhat treating it as though I was setting up an application that I'd want to continue to work on, as opposed to a throwaway. I made a few choices I didn't love, which I documented in comments in the code.
 
+Testing here is a little sparse, and is only included on the computational elements of the app (mostly because I didn't want to mock the query service). But I think component tests could be added here quite easily.
+
 ### Known Issues: Duplicate Items
 
 This implementation uses React Query's infinite pagination feature. React Query provides a fantastically easy method of fetching, caching, refetching, etc. The issue with using this tool for this particular project is that because the data reorders and shifts so often, items will get pushed down to the second page before they've been invalidated from the first. This leads to duplicate items in the list. An easy way to manage this would be to do actual paging so that items shifting from one page to the next wouldn't ultimately matter.

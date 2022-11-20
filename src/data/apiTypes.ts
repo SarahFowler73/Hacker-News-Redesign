@@ -6,13 +6,24 @@ export type PageResult = {
   hitsPerPage: number
   exhaustiveNbHits: boolean
   exhaustiveTypo: boolean
+  exhaustive?: { nbHits: boolean; typo: boolean }
   query: string
   params: string
   processingTimeMS: number
+  processingTimingsMS?: object
 }
 
 export type HitResult = {
-  _tags: ReadonlyArray<'story' | 'poll' | 'show_hn' | 'ask_hn' | 'front_page'>
+  _tags: ReadonlyArray<
+    | 'story'
+    | 'poll'
+    | 'show_hn'
+    | 'ask_hn'
+    | 'front_page'
+    | `author_${string}`
+    | `story_${string}`
+  >
+  _highlightResult: object
   title: string | null
   url: string | null
   author: string

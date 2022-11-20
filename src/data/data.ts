@@ -10,7 +10,7 @@ import { HitResult, PageResult } from './apiTypes'
 /**
  * Takes a raw json result and transforms it into the desired shape for the app
  */
-const transformHits = (
+export const transformHits = (
   hits: ReadonlyArray<HitResult>,
 ): ReadonlyArray<TransformedHitResult> =>
   pipe(

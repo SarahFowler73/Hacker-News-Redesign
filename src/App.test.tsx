@@ -4,6 +4,7 @@ import App from './App'
 
 test('renders the app', () => {
   render(<App />)
-  const element = screen.getByText(/hacker news/i)
-  expect(element).toBeInTheDocument()
+  const [header, footer] = screen.getAllByText(/hacker news/i)
+  expect(header).toBeInTheDocument()
+  expect(footer).toBeInTheDocument()
 })
