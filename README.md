@@ -49,3 +49,6 @@ Were I actually implementing this design in a work environment, I would be talki
 - Loading component and (minor) error feedback to user
 - Hover and disabled states
 - Responsiveness (basic)
+
+
+![2022-11-20 14 34 55](https://user-images.githubusercontent.com/5266362/202922402-4d678bb6-d438-43c0-acf5-0b20a53a661a.gif)
