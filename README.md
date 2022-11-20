@@ -7,7 +7,7 @@ This project fetches data from Hacker News's [Algolia API](https://hn.algolia.co
 - "saving" items in local session state
 - paginating through more results
 
-It was started using Create React App, uses ReactQuery for fetching, Redux for appstate management, Styled Components for styling, and React Router for routing.
+It was started using Create React App, uses ReactQuery for fetching, Redux for appstate management, Styled Components for styling, and React Router for routing. Computation and data munging is done with fp-ts, which might be a little unfamiliar, but is like a very well-typed Ramda or lodash.
 
 ## Prerequisites
 

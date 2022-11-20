@@ -3,7 +3,7 @@ import * as RA from 'fp-ts/ReadonlyArray'
 import { pipe } from 'fp-ts/function'
 
 import { DOMAIN_REGEX, HN_BASE_ITEM_URL } from '../common/constants'
-import { isNil } from '../common/helpers'
+import { isNil } from '../common/typeGuards'
 import { TransformedHitResult, TransformedPageResult } from '../common/types'
 import { HitResult, PageResult } from './apiTypes'
 
@@ -28,9 +28,8 @@ export const transformHits = (
             createdAtISO: hit.created_at,
             externalUrlDomain: pipe(
               // Extract the domain from external urls for linking to ycombinator search
-              hit.url,
+              DOMAIN_REGEX.exec(hit.url ?? ''),
               O.fromNullable,
-              O.chain(url => O.fromNullable(DOMAIN_REGEX.exec(url))),
               O.chain(RA.lookup(1)),
             ),
           }),

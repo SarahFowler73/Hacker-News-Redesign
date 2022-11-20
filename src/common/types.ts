@@ -1,6 +1,4 @@
-import * as Eq from 'fp-ts/Eq'
 import * as O from 'fp-ts/Option'
-import * as Str from 'fp-ts/string'
 
 import { PageResult } from '../data/apiTypes'
 
@@ -18,7 +16,3 @@ export type TransformedHitResult = {
 export type TransformedPageResult = Pick<PageResult, 'page'> & {
   hits: ReadonlyArray<TransformedHitResult>
 }
-
-export const TransformedHitResultEq = Eq.contramap(
-  (hit: TransformedHitResult) => hit.id,
-)(Str.Eq)
