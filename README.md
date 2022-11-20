@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Hacker News Redesign in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project fetches data from Hacker News's [Algolia API](https://hn.algolia.com/api), processes it, and displays it according to a prompt design. Features included are
 
-## Available Scripts
+- displaying and linking to HN articles, comments etc
+- light/dark theme toggle
+- "saving" items in local session state
+- paginating through more results
 
-In the project directory, you can run:
+It was started using Create React App, uses ReactQuery for fetching, Redux for appstate management, Styled Components for styling, and React Router for routing.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Node.js >= 16
+Yarn (This project uses yarn@3, but the project should install it locally for you if you're on an older version)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Install Packages
 
-### `npm test`
+```
+yarn install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Start
 
-### `npm run build`
+```
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+App will be available at port 3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Thoughts and Further Developments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I went overboard, since I was having fun! :D I think the prompt could have been accomplished with a less complicated and scalable approach (e.g. I wanted to try out ReactQuery, but a sufficient solution for this scale of project could have been managed with fetch and some local state). However, I was somewhat treating it as though I was setting up an application that I'd want to continue to work on, as opposed to a throwaway. I made a few choices I didn't love, which I documented in comments in the code.
 
-### `npm run eject`
+### Known Issues: Duplicate Items
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This implementation uses React Query's infinite pagination feature. React Query provides a fantastically easy method of fetching, caching, refetching, etc. The issue with using this tool for this particular project is that because the data reorders and shifts so often, items will get pushed down to the second page before they've been invalidated from the first. This leads to duplicate items in the list. An easy way to manage this would be to do actual paging so that items shifting from one page to the next wouldn't ultimately matter.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Improvements to the Design
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Accessibility Concerns
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Were I actually implementing this design in a work environment, I would be talking to my designers. The text in much of the page is too tiny and light-colored to be easily read by users with visual impairments. I would also want to test some of the contrast of the accent color on white.
 
-## Learn More
+#### Enhancements Included
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Loading component and (minor) error feedback to user
+- Hover and disabled states
+- Responsiveness (basic)

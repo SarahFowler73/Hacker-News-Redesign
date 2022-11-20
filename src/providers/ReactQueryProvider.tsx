@@ -9,7 +9,7 @@ const queryClient = new QueryClient({
       // https://tanstack.com/query/v4/docs/guides/testing#turn-off-retries
       retry: process.env.NODE_ENV !== 'test' ? 3 : false,
       refetchOnWindowFocus: false,
-      staleTime: 30000, // 30 seconds
+      staleTime: 20000, // 20 seconds
       cacheTime: 900000,
     },
   },

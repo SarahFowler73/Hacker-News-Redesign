@@ -58,6 +58,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
     display: flex;
     flex-direction: column;
     flex-grow:1;
+    padding: 0 1rem;
   }
 
   * {

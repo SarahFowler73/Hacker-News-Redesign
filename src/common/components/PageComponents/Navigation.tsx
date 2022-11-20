@@ -13,6 +13,7 @@ const LinkText = styled.span(
   ({ isActive }: { isActive: boolean }) => css`
     color: ${({ theme }) =>
       isActive ? theme.colors.accent : theme.colors.text};
+    font-weight: ${isActive ? 'bold' : 'normal'};
   `,
 )
 
